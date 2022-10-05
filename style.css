@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: #b739b4;
+  background: linear-gradient(to right top, #b739b4, #221f65);
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+/* Striped ellipse top left */
+body::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 50vw;
+  height: 70vh;
+  background-image: repeating-linear-gradient(
+    130deg,
+    #4f47c3,
+    #4f47c3 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  clip-path: ellipse(37vw 60vh at 20% 20%);
+  z-index: 1;
+}
+
+/* Dotted ellipse bottom right */
+body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  height: 60vh;
+  background-image: radial-gradient(#782ec5 3px, transparent 4px),
+    radial-gradient(#782ec5 3px, transparent 4px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-repeat: repeat;
+  clip-path: ellipse(37vw 50vh at 80% 90%);
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+/* Dotted ellipse behind the white square */
+header::before {
+  content: '';
+  position: absolute;
+  top: calc(50vh - 5rem);
+  left: calc(50vw - 8rem);
+  width: 8rem;
+  height: 16rem;
+  z-index: 1;
+  background-image: radial-gradient(#9f6294 3px, transparent 4px),
+    radial-gradient(#9f6294 3px, transparent 4px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  background-repeat: repeat;
+  clip-path: ellipse(4rem 8rem at 50% 50%);
+  transform: rotate(40deg);
+}
+/* Striped ellipse behind the white square */
+header::after {
+  content: '';
+  position: absolute;
+  top: calc(50vh - 170px);
+  left: calc(50vw - 130px);
+
+  width: 300px;
+  height: 300px;
+  background-image: repeating-linear-gradient(
+    40deg,
+    #74bfc5,
+    #74bfc5 1px,
+    transparent 1px,
+    transparent 5px
+  );
+
+  clip-path: path('M 3 210 S 0 30 60 15 S 150 0 270 180 S 30 300 4 210 z');
+  z-index: 2;
+}
+
+/* Yellow triangle */
+div::before {
+  content: '';
+  background: #f1fb52;
+  position: absolute;
+  top: calc(50vh - 8rem);
+  left: calc(50vw - 7rem);
+  width: 14rem;
+  height: 19rem;
+  clip-path: polygon(100% 0%, 50% 100%, 0% 0%);
+  z-index: 2;
+  transform: rotate(-15deg);
+}
+
+/* Pink triangle */
+div::after {
+  content: '';
+  background: #cb32af;
+  position: absolute;
+  top: calc(50vh - 7.5rem);
+  left: calc(50vw - 5rem);
+  width: 12rem;
+  height: 12rem;
+  z-index: 3;
+  transform: rotate(25deg);
+}
+
+h1 {
+  z-index: 98;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+
+  padding: 1rem;
+  width: 14rem;
+  height: 14rem;
+  background: white;
+  text-transform: uppercase;
+}
+
+h1 span {
+  color: #5e2bda;
+}
+
+time {
+  position: relative;
+  top: -2rem;
+  right: -3.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  z-index: 99;
+}
